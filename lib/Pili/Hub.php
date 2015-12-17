@@ -40,5 +40,11 @@ class Hub
         unset($stream);
         return $result;
     }
+
+    public function forwarding(array $customForwardHosts)
+    {
+        return Api::forwarding($this->_transport, $this->_hub, $customForwardHosts);
+    }
+
 }
 ?>

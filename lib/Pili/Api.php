@@ -15,6 +15,14 @@ final class Api
         return $url;
     }
 
+    public static function forwarding($transport, $hubName, array $customForwardHosts)
+    {
+        $url = self::_getApiBaseUrl() . "hubs/$hubName/forwards";
+        $params = array('customForwardHosts' => $customForwardHosts);
+        $body = json_encode($params);
+        return $transport->send(HttpRequest::POST, $url, $body);
+    }
+
     public static function createStream($transport, $hubName, $title = NULL, $publishKey = NULL, $publishSecurity = NULL)
     {
         $url = self::_getApiBaseUrl() . 'streams';
