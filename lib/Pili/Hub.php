@@ -46,5 +46,10 @@ class Hub
         return Api::forwarding($this->_transport, $this->_hub, $customForwardHosts);
     }
 
+    public function playcount($domainType)
+    {
+        return Api::playcount($this->_transport, $this->_hub, $domainType);
+    }
+
 }
 ?>

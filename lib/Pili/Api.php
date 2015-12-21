@@ -23,6 +23,12 @@ final class Api
         return $transport->send(HttpRequest::POST, $url, $body);
     }
 
+    public static function playcount($transport, $hubName, $domainType)
+    {
+        $url = self::_getApiBaseUrl() . "hubs/$hubName/stat/playcount?type=$domainType";
+        return $transport->send(HttpRequest::GET, $url);
+    }
+
     public static function createStream($transport, $hubName, $title = NULL, $publishKey = NULL, $publishSecurity = NULL)
     {
         $url = self::_getApiBaseUrl() . 'streams';
