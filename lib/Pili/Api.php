@@ -23,9 +23,9 @@ final class Api
         return $transport->send(HttpRequest::POST, $url, $body);
     }
 
-    public static function playcount($transport, $hubName, $domainType)
+    public static function playcount($transport, $hubName, $domainType, $time)
     {
-        $url = self::_getApiBaseUrl() . "hubs/$hubName/stat/playcount?type=$domainType";
+        $url = self::_getApiBaseUrl() . "hubs/$hubName/stat/playcount?type=$domainType&time=$time";
         return $transport->send(HttpRequest::GET, $url);
     }
 
